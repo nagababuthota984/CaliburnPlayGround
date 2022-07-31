@@ -6,6 +6,23 @@
              xmlns:local="clr-namespace:CaliburnPlayGround.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="PlayGround.GridView.NoColumnHeader" TargetType="GridViewColumnHeader">
+            <Setter Property="Visibility" Value="Collapsed"/>
+        </Style>
+        <GridView x:Key="List">
+            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="100"/>
+            <GridViewColumn Header="Hours Consumed" DisplayMemberBinding="{Binding HoursConsumed}" Width="100"/>
+            <GridViewColumn Header="Is Completed" DisplayMemberBinding="{Binding IsCompleted}" Width="100" />
+        </GridView>
+        <GridView  x:Key="Card" ColumnHeaderContainerStyle="{StaticResource PlayGround.GridView.NoColumnHeader}">
+            
+            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="100"/>
+            <GridViewColumn Header="Hours Consumed" DisplayMemberBinding="{Binding HoursConsumed}" Width="100"/>
+            <GridViewColumn Header="Is Completed" DisplayMemberBinding="{Binding IsCompleted}" Width="100" />
+        </GridView>
+        
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -34,12 +51,8 @@
                    VerticalAlignment="Center"
                    FontSize="18"
                    FontWeight="DemiBold"/>
-        <TextBlock Grid.Row="1" Grid.Column="1"
-                   Text="Pie chart here"
-                   FontSize="20"
-                   FontWeight="DemiBold"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
+        <TextBlock Text="Activities" FontSize="16" Grid.Row="1" Grid.Column="1" Margin="20 0 0 5"/>
+        <ListView ItemsSource="{Binding Activities}" Grid.Row="1" Grid.Column="1" View="{StaticResource Card}" Margin="20"/>
         <TextBlock Grid.Row="1" Grid.Column="2"
                    Text="On leave - 7 days"
                    FontSize="20"

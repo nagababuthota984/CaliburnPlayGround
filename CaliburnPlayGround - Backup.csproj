@@ -8,19 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\app_icon.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Caliburn.Micro" Version="4.0.173" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Behaviors\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Images\app_icon.png" />
+    <Folder Include="Images\" />
+    <Folder Include="NewFolder\NewFolder\" />
   </ItemGroup>
 
 </Project>

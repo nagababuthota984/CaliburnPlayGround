@@ -4,9 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CaliburnPlayGround.Views"
+             xmlns:cal="http://www.caliburnproject.org" 
+             xmlns:custom="clr-namespace:CaliburnPlayGround.CustomControls"
+             xmlns:converters="clr-namespace:CaliburnPlayGround.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
+    <UserControl.Resources>
+        <converters:LengthToVisibilityConverter x:Key="LengthToVisibilityConverter"/>
+    </UserControl.Resources>
+    <Grid HorizontalAlignment="Center" Width="320" Opacity="0.975">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto"/>
@@ -20,10 +26,18 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Caliburn Playground" Grid.ColumnSpan="2" FontSize="30" FontWeight="DemiBold" Margin="20"/>
         <TextBlock Grid.Row="1" Width="60" Text="Username" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBlock Text="Enter your username.." Style="{StaticResource Placeholder}"
+                   Grid.Row="1" Grid.Column="1" 
+                   HorizontalAlignment="Left" Margin="37 0 0 0"
+                   VerticalAlignment="Center"
+                   Visibility="{Binding ElementName=Username, Path=Text.Length,Converter={StaticResource LengthToVisibilityConverter}}"/>
         <TextBox x:Name="Username" Grid.Row="1" Grid.Column="1" Width="150" Height="30" Margin="5" Padding="5" />
         <TextBlock Grid.Row="2" Width="60" Text="Password" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <TextBox x:Name="Password" Grid.Row="2" Grid.Column="1" Width="150" Height="30" Margin="5" Padding="5" />
-        <Button Grid.Row="3" Grid.Column="1" x:Name="Login" Height="25" Width="80" Content="Log in"/>
+        <!--<Button Grid.Row="3" Grid.Column="1" Height="25" Width="80" Content="Log in"
+                cal:Message.Attach="[Event Click]=[Action Login($view)]" />-->
+        <custom:IconButton Grid.Column="1" Grid.Row="3" Height="25" Width="100" Content="Log in" IconSource="/Images/app_icon.png"
+                x:Name="Login"/>
 
     </Grid>
 </UserControl>

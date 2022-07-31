@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace CaliburnPlayGround
 {
@@ -13,5 +7,12 @@ namespace CaliburnPlayGround
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            //way to start the bootstrapper without the help of app.xaml resources
+
+            //Bootstrapper b = new();
+            //b.Initialize();
+        }
     }
 }

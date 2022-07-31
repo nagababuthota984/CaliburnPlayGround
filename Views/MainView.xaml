@@ -7,8 +7,6 @@
         mc:Ignorable="d"
         Title="Caliburn Playground" Height="450" Width="800">
     <Grid>
-       
-        
         <ContentControl  x:Name="ActiveItem" Width="Auto"/>
     </Grid>
 </Window>
