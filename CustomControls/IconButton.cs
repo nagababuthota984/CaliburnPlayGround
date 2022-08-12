@@ -11,8 +11,14 @@ namespace CaliburnPlayGround.CustomControls
 
         public string IconSource
         {
-            get { return (string)GetValue(IconSourceProperty); }
-            set { SetValue(IconSourceProperty, value); }
+            get 
+            { 
+                return (string)GetValue(IconSourceProperty); 
+            }
+            set 
+            {
+                SetValue(IconSourceProperty, value); 
+            }
         }
 
 

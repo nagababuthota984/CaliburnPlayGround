@@ -24,5 +24,7 @@ namespace CaliburnPlayGround.Views
         {
             InitializeComponent();
         }
+
+       
     }
 }

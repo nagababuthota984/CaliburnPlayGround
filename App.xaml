@@ -9,6 +9,9 @@
                     <local:Bootstrapper x:Key="Bootstrapper"/>
                 </ResourceDictionary>
                 <ResourceDictionary Source="/Styles/Styles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Mahapps.Metro;component/Styles/Controls.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Mahapps.Metro;component/Styles/Fonts.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Mahapps.Metro;component/Styles/Themes/Light.Blue.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
