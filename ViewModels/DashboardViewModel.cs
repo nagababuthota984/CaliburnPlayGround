@@ -12,13 +12,25 @@ namespace CaliburnPlayGround.ViewModels
     {
         private readonly IEventAggregator _eventAggregator;
 
+        private int selectedIndex;
+
+        public int SelectedIndex
+        {
+            get { return selectedIndex; }
+            set
+            {
+                selectedIndex = value;
+                NotifyOfPropertyChange(() => SelectedIndex);
+            }
+        }
+
         public List<Activity> Activities
         {
             get
             {
                 return new(){
                     new(){
-                        Name="Database tuning", 
+                        Name="Database tuning",
                         HoursConsumed=20,
                         IsCompleted=true
                     },
@@ -51,10 +63,16 @@ namespace CaliburnPlayGround.ViewModels
         public DashboardViewModel(IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
+            SelectedIndex = 0;
         }
         public void LogOut()
         {
             _eventAggregator.PublishOnUIThreadAsync("Logout");
+        }
+
+        public void ChangeTab()
+        {
+            SelectedIndex = 1;
         }
     }
 

@@ -3,64 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cal="http://www.caliburnproject.org"
              xmlns:local="clr-namespace:CaliburnPlayGround.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <Style x:Key="PlayGround.GridView.NoColumnHeader" TargetType="GridViewColumnHeader">
-            <Setter Property="Visibility" Value="Collapsed"/>
-        </Style>
-        <GridView x:Key="List">
-            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="100"/>
-            <GridViewColumn Header="Hours Consumed" DisplayMemberBinding="{Binding HoursConsumed}" Width="100"/>
-            <GridViewColumn Header="Is Completed" DisplayMemberBinding="{Binding IsCompleted}" Width="100" />
-        </GridView>
-        <GridView  x:Key="Card" ColumnHeaderContainerStyle="{StaticResource PlayGround.GridView.NoColumnHeader}">
-            
-            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="100"/>
-            <GridViewColumn Header="Hours Consumed" DisplayMemberBinding="{Binding HoursConsumed}" Width="100"/>
-            <GridViewColumn Header="Is Completed" DisplayMemberBinding="{Binding IsCompleted}" Width="100" />
-        </GridView>
-        
-    </UserControl.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="3*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Text="Your Dashboard" HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="25"
-                   FontWeight="DemiBold"/>
-        <TextBlock Text="Nagababu Thota" HorizontalAlignment="Center"
-                   Grid.Column="2"
-                   VerticalAlignment="Center"
-                   FontWeight="DemiBold"
-                   FontSize="25"/>
-        <Separator Opacity="0.5" Grid.ColumnSpan="3" VerticalAlignment="Bottom" Height="1"/>
-        <Separator Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Bottom" Height="1"/>
-
-        <TextBlock Grid.Row="1" Text="Total working days - 31"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="18"
-                   FontWeight="DemiBold"/>
-        <TextBlock Text="Activities" FontSize="16" Grid.Row="1" Grid.Column="1" Margin="20 0 0 5"/>
-        <ListView ItemsSource="{Binding Activities}" Grid.Row="1" Grid.Column="1" View="{StaticResource Card}" Margin="20"/>
-        <TextBlock Grid.Row="1" Grid.Column="2"
-                   Text="On leave - 7 days"
-                   FontSize="20"
-                   FontWeight="DemiBold" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
-        <Button x:Name="LogOut" Content="Log out"
-                Grid.Row="2" Grid.Column="2" Height="25"
-                Width="80" Background="OrangeRed"/>
+        <TabControl x:Name="Tab" SelectedIndex="{Binding SelectedIndex}">
+            <TabItem Header="Dashboard">
+                <TextBlock Text="click me" cal:Message.Attach="[Event MouseOver]=[Action ChangeTab]"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </TabItem>
+            <TabItem Header="Reports">
+                <TextBlock Text="i am tab 2"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </UserControl>
